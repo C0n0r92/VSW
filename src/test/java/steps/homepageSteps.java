@@ -1,5 +1,6 @@
 package steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 
 import pages.PageOne;
@@ -15,6 +16,11 @@ public class homepageSteps {
     @And("^I go to \"([^\"]*)\"$")
     public void I_go_to(String url){
        DriverUtil.getWebDriver().get(url);
-       page1.doSomething();
+       page1.verifyPageIsDisplayed();
+    }
+
+    @And("^I enter \"([^\"]*)\" as my username$")
+    public void I_enter_as_my_username(String usrname) {
+        page1.enterUserName();
     }
 }

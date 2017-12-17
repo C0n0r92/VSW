@@ -19,7 +19,7 @@ public class InitSteps {
 
     @After
     public void TearDown(){
-        DriverUtil.getWebDriver().close();
+        DriverUtil.getWebDriver().quit();
     }
 
 }
