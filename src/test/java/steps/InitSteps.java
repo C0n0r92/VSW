@@ -5,10 +5,10 @@ import cucumber.api.java.Before;
 
 import util.DriverUtil;
 
-
 /**
  * Created by conor on 17/12/17.
  */
+
 public class InitSteps {
 
     @Before

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93ea4038-52dc-4597-a784-ee091d64cab7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/util/DriverUtil.java" afterPath="$PROJECT_DIR$/src/main/java/util/DriverUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/steps/InitSteps.java" afterPath="$PROJECT_DIR$/src/test/java/steps/InitSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VSW.iml" afterPath="$PROJECT_DIR$/VSW.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VSW.iws" />
@@ -76,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InitSteps.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="InitSteps.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/steps/InitSteps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="480">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.3166287" vertical-offset="11" max-vertical-offset="480">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#210#211#0" expanded="true" />
@@ -108,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DriverUtil.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DriverUtil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/DriverUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7910798" vertical-offset="53" max-vertical-offset="495">
+            <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="495">
               <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1325,7 +1321,7 @@
       <changelist id="93ea4038-52dc-4597-a784-ee091d64cab7" name="Default" comment="" />
       <created>1513362878176</created>
       <updated>1513362878176</updated>
-      <workItem from="1513362879820" duration="16044000" />
+      <workItem from="1513362879820" duration="16309000" />
     </task>
     <task id="LOCAL-00001" summary="Repo basic config changes">
       <created>1513364047328</created>
@@ -1347,11 +1343,15 @@
       <created>1513545387053</created>
       <updated>1513545387053</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="trying basic login test with facebook">
+      <created>1513546488515</created>
+      <updated>1513546488515</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16044000" />
+    <option name="totallyTimeSpent" value="16309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="741" extended-state="0" />
@@ -1523,24 +1523,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/steps/InitSteps.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/DriverUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="480">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="495">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/DriverUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/steps/InitSteps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7910798" vertical-offset="53" max-vertical-offset="495">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.3166287" vertical-offset="11" max-vertical-offset="480">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
           </folding>
         </state>
       </provider>
