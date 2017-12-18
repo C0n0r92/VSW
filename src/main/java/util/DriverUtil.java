@@ -17,8 +17,7 @@ public class DriverUtil {
 
             if (driver == null) {
                 System.setProperty("webdriver.chrome.driver", "/Users/conor/workspaces/VSW/src/drivers/chromedriver");
-                WebDriver d = new ChromeDriver();
-                driver = d;
+                driver = new ChromeDriver();
             }
 
            return driver;
