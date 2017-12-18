@@ -24,8 +24,8 @@ public class PageOne extends BasePage {
         super(driver);
     }
 
-    public void enterUserName() {
-        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys("Conor");
+    public void enterUserName(String usrname) {
+        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(usrname);
     }
 
     public void verifyPageIsDisplayed() {

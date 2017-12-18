@@ -1,6 +1,5 @@
 package steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 
 import pages.PageOne;
@@ -21,6 +20,6 @@ public class homepageSteps {
 
     @And("^I enter \"([^\"]*)\" as my username$")
     public void I_enter_as_my_username(String usrname) {
-        page1.enterUserName();
+        page1.enterUserName(usrname);
     }
 }
