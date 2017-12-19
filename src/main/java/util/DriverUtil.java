@@ -3,6 +3,7 @@ package util;
 import lombok.Setter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 /**
@@ -13,13 +14,14 @@ public class DriverUtil {
     @Setter
     private static WebDriver driver;
 
-    public static WebDriver getWebDriver(){
+    public static WebDriver getWebDriver() {
+        if (driver == null) {
+//            System.setProperty("webdriver.firefox.driver", "/Users/conor/workspaces/VSW/src/drivers/chromedriver");
+//            driver = new ChromeDriver();
 
-            if (driver == null) {
-                System.setProperty("webdriver.chrome.driver", "/Users/conor/workspaces/VSW/src/drivers/chromedriver");
-                driver = new ChromeDriver();
-            }
-
-           return driver;
+            System.setProperty("webdriver.gecko.driver", "/Users/conor/workspaces/VSW/src/drivers/geckodriver");
+            driver = new FirefoxDriver();
+        }
+        return driver;
     }
 }
