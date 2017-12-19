@@ -12,6 +12,9 @@ import util.DriverUtil;
  */
 public class RegSteps {
 
+    private static final String DATE_PREFIX = "dd";
+    private static final String MONTH_PREFIX = "mm";
+    private static final String YEAR_PREFIX = "yy";
     private RegPage registrationPage = new RegPage(DriverUtil.getWebDriver());
 
     @And("^I go to \"([^\"]*)\"$")
@@ -59,18 +62,18 @@ public class RegSteps {
 
     @When("^I enter \"([^\"]*)\" as the day$")
     public void I_enter_as_the_day(String day){
-        registrationPage.enterDate(day,"dd");
+        registrationPage.enterDate(day, DATE_PREFIX);
     }
 
     @When("^I enter \"([^\"]*)\" as the month$")
     public void I_enter_as_the_month(String month){
-        registrationPage.enterDate(month,"mm");
+        registrationPage.enterDate(month, MONTH_PREFIX);
     }
 
 
     @When("^I enter \"([^\"]*)\" as the year$")
     public void I_enter_as_the_year(String year ){
-        registrationPage.enterDate(year,"yy");
+        registrationPage.enterDate(year, YEAR_PREFIX);
     }
 
     @Then("^the validation warning is \"([^\"]*)\" for dates$")
