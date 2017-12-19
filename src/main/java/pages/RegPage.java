@@ -2,11 +2,13 @@ package pages;
 
 import lombok.Getter;
 import lombok.extern.java.Log;
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -50,6 +52,10 @@ public class RegPage extends BasePage {
     @FindBy(css = "#pie_register > li:nth-child(3) > div.fieldset.error > div.legend_txt > span")
     WebElement hobbySectionErrorMessage;
 
+    @Getter
+    @FindBy(css = "NO ELEMENT POPPING UP FOR VALIDATION == BUG? ")
+    WebElement dateSectionErrorMessage;
+
     // ---- Button locators ----
 
     @FindBy(css = "#pie_register > li:nth-child(14) > div > input[type=\"submit\"]")
@@ -75,6 +81,11 @@ public class RegPage extends BasePage {
 
     @FindBy(css = "#pie_register > li:nth-child(3) > div > div.radio_wrap > input:nth-child(6)")
     WebElement cricketRadioBtn;
+
+    // ---- Dropdown locators ----
+
+    @FindBy(id = "#mm_date_8")
+    Select dayDropDown;
 
 
     public RegPage(WebDriver driver) {
@@ -165,5 +176,11 @@ public class RegPage extends BasePage {
             default:
                 log.severe("No such option ");
         }
+    }
+
+    public void enterDate(String number, String format) {
+        String dateBaseLoctor = "_date_8";
+        Select dropdown = new Select(driver.findElement(By.id(format+dateBaseLoctor)));
+        dropdown.selectByValue(number);
     }
 }

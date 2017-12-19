@@ -22,7 +22,7 @@ public class RegSteps {
 
     @When("^I enter \"([^\"]*)\" as my first name and \"([^\"]*)\" as my last name$")
     public void I_enter_as_my_first_name_and_as_my_last_name(String fname, String lname){
-        registrationPage.enterFirstAndSecondName(fname,lname);
+        registrationPage.enterFirstAndSecondName(fname, lname);
     }
 
     @And("^I click the submit button$")
@@ -55,5 +55,27 @@ public class RegSteps {
     public void the_validation_warning_is_for_hobbies(String status){
         registrationPage.verifyErrorMessageIsDisplayed(status,
                 registrationPage.getHobbySectionErrorMessage());
+    }
+
+    @When("^I enter \"([^\"]*)\" as the day$")
+    public void I_enter_as_the_day(String day){
+        registrationPage.enterDate(day,"dd");
+    }
+
+    @When("^I enter \"([^\"]*)\" as the month$")
+    public void I_enter_as_the_month(String month){
+        registrationPage.enterDate(month,"mm");
+    }
+
+
+    @When("^I enter \"([^\"]*)\" as the year$")
+    public void I_enter_as_the_year(String year ){
+        registrationPage.enterDate(year,"yy");
+    }
+
+    @Then("^the validation warning is \"([^\"]*)\" for dates$")
+    public void the_validation_warning_is_for_dates(String status){
+        registrationPage.verifyErrorMessageIsDisplayed(status,
+                registrationPage.getDateSectionErrorMessage());
     }
 }

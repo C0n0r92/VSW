@@ -44,8 +44,21 @@ Feature: Registering for the application
     | Leave Blank   |   displayed     |
 
 
+  Scenario Outline: Verify Entering validation on dates
+    Given I go to "http://demoqa.com/registration/"
+    When I enter "<day>" as the day
+    When I enter "<month>" as the month
+    When I enter "<year>" as the year
+    When I click the submit button
+    Then the validation warning is "<validationStatus>" for dates
 
-
+  Examples:
+    | day | month| year | validationStatus |
+    | 25  |  2  | 1992  | not displayed    |
+    | 1   |  1  | 2018  | displayed        |
+    | 4   |  3  |       | displayed        |
+    |     |  2  | 1992  | displayed        |
+    | 13  |     | 2000  | displayed        |
 
 
 
