@@ -33,7 +33,7 @@ public class RegSteps {
     }
 
     @Then("^the validation warning is \"([^\"]*)\"$")
-    public void the_validation_warning_is(String arg1){
-        registrationPage.verifyErrorMessageIsDisplayed(arg1);
+    public void the_validation_warning_is(String status){
+        registrationPage.verifyErrorMessageIsDisplayed(status );
     }
 }
