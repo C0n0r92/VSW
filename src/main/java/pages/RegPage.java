@@ -16,11 +16,19 @@ import static org.hamcrest.core.Is.is;
 @Log
 public class RegPage extends BasePage {
 
+    private static final String IS_DISPLAYED = "is displayed";
+
     @FindBy(id = "name_3_firstname")
     WebElement firstName;
 
     @FindBy(id = "name_3_lastname")
     WebElement lastName;
+
+    @FindBy(css = "#pie_register > li:nth-child(1) > div.fieldset.error > div.legend_txt > span")
+    WebElement nameSectionErrorMessage;
+
+    @FindBy(css = "#pie_register > li:nth-child(14) > div > input[type=\"submit\"]")
+    WebElement submitBtn;
 
     @FindBy(id = "content")
     WebElement pageContent;
@@ -45,5 +53,19 @@ public class RegPage extends BasePage {
         firstName.sendKeys(fname);
         lastName.sendKeys(lname);
 
+    }
+
+    public void clickSubmitBtn() {
+        submitBtn.click();
+    }
+
+    public void verifyErrorMessageIsDisplayed(String displayStatus) {
+        switch (displayStatus) {
+            case IS_DISPLAYED:
+              assertThat(pageContent.isDisplayed(), is(true));
+              //TODO: can prod be various languages would need to be sourced from properties file
+              assertThat(pageContent.getText(), is("* This field is required"));
+
+        }
     }
 }

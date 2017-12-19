@@ -2,6 +2,7 @@ package steps;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.RegPage;
 import util.DriverUtil;
@@ -24,5 +25,15 @@ public class RegSteps {
         registrationPage.enterFirstAndSecondName(fname,lname);
 
 
+    }
+
+    @And("^I click the submit button$")
+    public void I_click_the_submit_button(){
+        registrationPage.clickSubmitBtn();
+    }
+
+    @Then("^the validation warning is \"([^\"]*)\"$")
+    public void the_validation_warning_is(String arg1){
+        registrationPage.verifyErrorMessageIsDisplayed(arg1);
     }
 }
