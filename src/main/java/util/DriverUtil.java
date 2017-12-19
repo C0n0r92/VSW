@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 /**
  * Created by conor on 17/12/17.
  */
+
 public class DriverUtil {
 
     @Setter
@@ -16,11 +17,11 @@ public class DriverUtil {
 
     public static WebDriver getWebDriver() {
         if (driver == null) {
-//            System.setProperty("webdriver.firefox.driver", "/Users/conor/workspaces/VSW/src/drivers/chromedriver");
-//            driver = new ChromeDriver();
+            System.setProperty("webdriver.firefox.driver", "/Users/conor/workspaces/VSW/src/drivers/chromedriver");
+            driver = new ChromeDriver();
 
-            System.setProperty("webdriver.gecko.driver", "/Users/conor/workspaces/VSW/src/drivers/geckodriver");
-            driver = new FirefoxDriver();
+//            System.setProperty("webdriver.gecko.driver", "/Users/conor/workspaces/VSW/src/drivers/geckodriver");
+//            driver = new FirefoxDriver();
         }
         return driver;
     }
