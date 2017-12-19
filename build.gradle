@@ -1,11 +1,42 @@
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 version = '1.0'
 
 repositories {
     mavenCentral()
 }
+
+sourceSets {
+    acceptanceTest {
+        java.srcDir file('src/test/java')
+        resources.srcDir file('src/test/resources')
+        compileClasspath = sourceSets.main.output + sourceSets.test.output + configurations.acceptanceTestCompile
+        runtimeClasspath = compileClasspath + configurations.acceptanceTestRuntime
+    }
+}
+
+
+configurations {
+    acceptanceTestCompile.extendsFrom testCompile
+    acceptanceTestRuntime.extendsFrom testRuntime
+}
+
+
+task runAcceptanceTests(dependsOn: ['compileTestJava']) << {
+
+    javaexec {
+        main = "cucumber.api.cli.Main"
+        classpath = sourceSets.acceptanceTest.runtimeClasspath
+
+        args = ['--plugin', 'pretty',
+                '-f', 'json:build/reports/tests/acceptance/local/json/index.json',
+                '-p', 'json:build/reports/tests/acceptance/json/index.json',
+                '--glue', 'steps',
+                'src/test/resources/features']
+    }
+}
+
 
 dependencies {
 
