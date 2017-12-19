@@ -4,11 +4,8 @@ import lombok.extern.java.Log;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.NoSuchElementException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -21,6 +18,10 @@ public class RegPage extends BasePage {
 
     private static final String IS_DISPLAYED = "displayed";
     private static final String IS_NOT_DISPLAYED = "not displayed";
+    private static final String SINGLE = "Single";
+    private static final String MARRIED = "Married";
+    private static final String DIVORCED = "Divorced";
+    private String selectedRadioBtn;
 
     @FindBy(id = "name_3_firstname")
     WebElement firstName;
@@ -37,14 +38,18 @@ public class RegPage extends BasePage {
     @FindBy(id = "content")
     WebElement pageContent;
 
+    @FindBy(css = "#pie_register > li:nth-child(2) > div > div > input:nth-child(2)")
+    WebElement singleRadioBtn;
+
+    @FindBy(css = "#pie_register > li:nth-child(2) > div > div > input:nth-child(4)")
+    WebElement marriedRadioBtn;
+
+    @FindBy(css = "#pie_register > li:nth-child(2) > div > div > input:nth-child(6)")
+    WebElement divorcedRadioBtn;
+
+
     public RegPage(WebDriver driver) {
         super(driver);
-    }
-
-    public void enterUserName(String usrname) {
-        wait.until(ExpectedConditions.visibilityOf(firstName)).sendKeys(usrname);
-        Actions build = new Actions(driver);
-        build.moveToElement(firstName).clickAndHold();
     }
 
     public void verifyPageIsDisplayed() {
@@ -66,23 +71,61 @@ public class RegPage extends BasePage {
     public void verifyErrorMessageIsDisplayed(String displayStatus) {
         switch (displayStatus) {
             case IS_DISPLAYED:
-              wait.until(ExpectedConditions.visibilityOf(nameSectionErrorMessage));
-              assertThat(nameSectionErrorMessage.isDisplayed(), is(true));
-              assertThat(nameSectionErrorMessage.getText(), is("* This field is required"));
-              break;
+                wait.until(ExpectedConditions.visibilityOf(nameSectionErrorMessage));
+                assertThat(nameSectionErrorMessage.isDisplayed(), is(true));
+                assertThat(nameSectionErrorMessage.getText(), is("* This field is required"));
+                break;
 
             //TODO : Would Improve waiting 30s for timeout sucks.
 
             case IS_NOT_DISPLAYED:
                 Boolean elementFound = false;
-                try{
+                try {
                     wait.until(ExpectedConditions.visibilityOf(nameSectionErrorMessage));
                     elementFound = true;
-                }
-                catch (TimeoutException e ){
+                } catch (TimeoutException e) {
                     assertThat(elementFound, is(false));
                 }
                 break;
+            //TODO : Throw custom exception
+            default:
+                log.severe("No such option ");
+        }
+    }
+
+    public void clickRadioBtn(String radioBtn) {
+        selectedRadioBtn = radioBtn;
+        switch (radioBtn) {
+            case SINGLE:
+                singleRadioBtn.click();
+                break;
+            case MARRIED:
+                marriedRadioBtn.click();
+                break;
+            case DIVORCED:
+                divorcedRadioBtn.click();
+                break;
+            //TODO : Throw custom exception
+            default:
+                log.severe("No such option ");
+        }
+    }
+
+    //TODO could be refactred with above to be the same method. reduce duplicate code
+    public void verifyRadioButtonHasBeenSelected() {
+        switch (selectedRadioBtn) {
+            case SINGLE:
+                assertThat(singleRadioBtn.isSelected(), is(true));
+                break;
+            case MARRIED:
+                assertThat(marriedRadioBtn.isSelected(), is(true));
+                break;
+            case DIVORCED:
+                assertThat(divorcedRadioBtn.isSelected(), is(true));
+                break;
+            //TODO : Throw custom exception
+            default:
+                log.severe("No such option ");
         }
     }
 }

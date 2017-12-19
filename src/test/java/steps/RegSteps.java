@@ -36,4 +36,19 @@ public class RegSteps {
     public void the_validation_warning_is(String status){
         registrationPage.verifyErrorMessageIsDisplayed(status );
     }
+
+    @And("^I toggle the \"([^\"]*)\" radio button$")
+    public void I_toggle_the_radio_button(String radioBtn){
+        registrationPage.clickRadioBtn(radioBtn);
+    }
+
+    @Then("^the radio button should be enabled$")
+    public void the_radio_button_should_be_enabled(){
+        registrationPage.verifyRadioButtonHasBeenSelected();
+    }
+
+    @Then("^the radio button should be selected$")
+    public void the_radio_button_should_be_selected(){
+        registrationPage.verifyRadioButtonHasBeenSelected();
+    }
 }
