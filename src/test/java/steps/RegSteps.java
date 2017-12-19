@@ -24,7 +24,6 @@ public class RegSteps {
     public void I_enter_as_my_first_name_and_as_my_last_name(String fname, String lname){
         registrationPage.enterFirstAndSecondName(fname,lname);
 
-
     }
 
     @And("^I click the submit button$")
@@ -34,7 +33,7 @@ public class RegSteps {
 
     @Then("^the validation warning is \"([^\"]*)\"$")
     public void the_validation_warning_is(String status){
-        registrationPage.verifyErrorMessageIsDisplayed(status );
+        registrationPage.verifyErrorMessageIsDisplayed(status,registrationPage.getNameSectionErrorMessage() );
     }
 
     @And("^I toggle the \"([^\"]*)\" radio button$")
