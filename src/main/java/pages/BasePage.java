@@ -13,7 +13,7 @@ public class BasePage {
 
         protected final WebDriver driver;
         public WebDriverWait wait;
-        static final long DEFAULT_EXPLICIT_WAIT = 30;
+        static final long DEFAULT_EXPLICIT_WAIT = 10;
 
         public BasePage(WebDriver driver) {
 
