@@ -23,6 +23,8 @@ configurations {
 }
 
 
+// @RICHARD, RUN ME WITH  "gradle clean build runAcceptanceTests" IN YOUR TERMINAL
+
 task runAcceptanceTests(dependsOn: ['compileTestJava']) << {
 
     javaexec {
