@@ -6,7 +6,7 @@ Feature: Registering for the application
   Given I go to "http://demoqa.com/registration/"
   When I enter "<firstName>" as my first name and "<lastName>" as my last name
   And I click the submit button
-  Then the validation warning is "<validationStatus>"
+  Then the validation warning is "<validationStatus>" for names
 
   Examples:
     | firstName  |  lastName    | validationStatus  |
@@ -34,7 +34,7 @@ Feature: Registering for the application
     Given I go to "http://demoqa.com/registration/"
     When I toggle the "<hobbyRadioBtn>" radio button
     When I click the submit button
-    Then the validation warning is "<validationStatus>"
+    Then the validation warning is "<validationStatus>" for hobbies
 
   Examples:
     | hobbyRadioBtn | validationStatus|

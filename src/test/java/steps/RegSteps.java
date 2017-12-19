@@ -23,7 +23,6 @@ public class RegSteps {
     @When("^I enter \"([^\"]*)\" as my first name and \"([^\"]*)\" as my last name$")
     public void I_enter_as_my_first_name_and_as_my_last_name(String fname, String lname){
         registrationPage.enterFirstAndSecondName(fname,lname);
-
     }
 
     @And("^I click the submit button$")
@@ -31,9 +30,10 @@ public class RegSteps {
         registrationPage.clickSubmitBtn();
     }
 
-    @Then("^the validation warning is \"([^\"]*)\"$")
-    public void the_validation_warning_is(String status){
-        registrationPage.verifyErrorMessageIsDisplayed(status,registrationPage.getNameSectionErrorMessage() );
+    @Then("^the validation warning is \"([^\"]*)\" for names$")
+    public void the_validation_warning_is_for_names(String status){
+        registrationPage.verifyErrorMessageIsDisplayed(status,
+                registrationPage.getNameSectionErrorMessage());
     }
 
     @And("^I toggle the \"([^\"]*)\" radio button$")
@@ -49,5 +49,11 @@ public class RegSteps {
     @Then("^the radio button should be selected$")
     public void the_radio_button_should_be_selected(){
         registrationPage.verifyRadioButtonHasBeenSelected();
+    }
+
+    @Then("^the validation warning is \"([^\"]*)\" for hobbies$")
+    public void the_validation_warning_is_for_hobbies(String status){
+        registrationPage.verifyErrorMessageIsDisplayed(status,
+                registrationPage.getHobbySectionErrorMessage());
     }
 }

@@ -28,24 +28,35 @@ public class RegPage extends BasePage {
 
     private String selectedRadioBtn;
 
+
+    @FindBy(id = "content")
+    WebElement pageContent;
+
+    //---- Input Field locators ----
+
     @FindBy(id = "name_3_firstname")
     WebElement firstName;
 
     @FindBy(id = "name_3_lastname")
     WebElement lastName;
 
+    //---- Error message locators ----
+
     @Getter
     @FindBy(css = "#pie_register > li:nth-child(1) > div.fieldset.error > div.legend_txt > span")
     WebElement nameSectionErrorMessage;
 
+    @Getter
     @FindBy(css = "#pie_register > li:nth-child(3) > div.fieldset.error > div.legend_txt > span")
-    WebElement hobbyErrorMessage;
+    WebElement hobbySectionErrorMessage;
+
+    // ---- Button locators ----
 
     @FindBy(css = "#pie_register > li:nth-child(14) > div > input[type=\"submit\"]")
     WebElement submitBtn;
 
-    @FindBy(id = "content")
-    WebElement pageContent;
+
+    // ---- Radio Button locators ----
 
     @FindBy(css = "#pie_register > li:nth-child(2) > div > div > input:nth-child(2)")
     WebElement singleRadioBtn;
